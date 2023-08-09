@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require("express");
 const app = express();
 
@@ -17,3 +18,5 @@ app.get("/signup", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`server is running on ${process.env.PORT}`);
 });
+=======
+>>>>>>> 720a10d454da00a8843ee37fb61b0f14d825e0b1
