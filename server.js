@@ -1,22 +1,46 @@
-<<<<<<< HEAD
-const express = require("express");
-const app = express();
+const express = require('express');
+const app = express()
+const connectDB = require('./config/database')
+const mongoose = require('mongoose')
+const logger = require('morgan')
+const passport = require('passport')
+const session = require('express-session')
+const flash = require('express-flash')
+const MongoStore = require('connect-mongo')(session)
+const mainRoutes = require('./routes/main')
 
-require("dotenv").config({ path: "./config/.env" });
+//dbconnections
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
-app.use(express.static("public"));
-app.set("view engine", "ejs");
+require('dotenv').config( {path : './config/.env'})
+require('./config/passport')(passport)
+connectDB()
+app.set('view engine', 'ejs')
+    
+app.use(express.static('public')) 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(logger('dev'))   
+     
+app.use( 
+    session({ 
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    })
+  )       
+         
+//passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.get("/", (req, res) => {
-  res.render("login");
-});
-
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
-
-app.listen(process.env.PORT, () => {
-  console.log(`server is running on ${process.env.PORT}`);
-});
-=======
->>>>>>> 720a10d454da00a8843ee37fb61b0f14d825e0b1
+app.use(flash())
+//routes
+app.use('/' , mainRoutes )
+  
+app.listen(process.env.PORT , () => {
+    console.log(`server is running on ${process.env.PORT }`)
+} )         
