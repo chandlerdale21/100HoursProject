@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto:wght@400;500&display=swap");
+
+html {
+  font-size: 10px;
+  background-color: rgb(226, 229, 233);
+  font-family: "Open Sans";
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.loginGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 14rem;
+}
+
+.loginImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  height: 20rem;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 14rem;
+  width: 35rem;
+  border-radius: 2.5rem;
+  margin-right: 6rem;
+}
+.imgCaption {
+  font-size: 2.5rem;
+  margin-left: 20rem;
+  margin-top: 2rem;
+  width: 60rem;
+}
+.loginFormGridContainer {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
+.loginForm {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 35rem;
+  width: 40rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  font-size: 2rem;
+  box-shadow: 0rem 0rem 0.7rem rgb(105, 105, 105);
+}
+#email,
+#password {
+  width: 30rem;
+  height: 4rem;
+  margin-left: 1.3rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  border: 0.01rem solid lightgray;
+  text-indent: 1rem;
+}
+#email:focus,
+#password:focus {
+  outline: none;
+}
+
+.login,
+.btn-signup {
+  height: 5rem;
+  width: 30rem;
+  color: rgb(255, 253, 253);
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-left: 1.3rem;
+  background-color: rgb(70, 69, 69);
+  font-size: 2.25rem;
+  border: none;
+}
+.login:hover,
+.btn-signup:hover {
+  cursor: pointer;
+}
+.signup {
+  border-top: 0.1rem solid lightgrey;
+  padding-top: 1rem;
+}
+.btn-signup {
+  width: 20rem;
+  height: 4rem;
+  background-color: rgb(237, 127, 18);
+  font-size: 2rem;
+}
+.alert-danger {
+  color: red;
+  font-size: 1.5rem;
+  height: 1rem;
+}
