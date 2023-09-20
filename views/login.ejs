@@ -1,21 +1,53 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
-    <%-include('partials/nav') %>
-    <form>
-      <input type="text" placeholder="email" name="email" />
-      <input type="password" placeholder="password" name="password" />
-      <button>Login</button>
-    </form>
-    <a href="/signup">signup</a>
+    <div class="loginGrid">
+      <div class="loginImgContainer">
+        <img src="/images/logo.jpg" class="logo" />
+        <p class="imgCaption">
+          Linkitary helps you connect with other active duty service members,
+          veterans, and their families.
+        </p>
+      </div>
+      <div class="loginFormGridContainer">
+        <section class="loginForm">
+          <% if (locals.messages.errors) { %> <% messages.errors.forEach( el =>
+          { %>
+          <div class="alert-danger"><%= el.msg %></div>
+          <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+          messages.info.forEach( el => { %>
+          <div class="alert-info"><%= el.msg %></div>
+          <% }) %> <% } %>
+          <form action="/postLogin" method="POST">
+            <label for="username"></label>
+
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email address"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <button type="submit" class="login">Login</button>
+          </form>
+          <section class="signup">
+            <a href="/signup">
+              <button class="btn-signup">Signup</button>
+            </a>
+          </section>
+        </section>
+      </div>
+    </div>
   </body>
 </html>
-=======
->>>>>>> 720a10d454da00a8843ee37fb61b0f14d825e0b1
