@@ -1,0 +1,19 @@
+.email,
+.password {
+  width: 30rem;
+  height: 4rem;
+  margin-left: 1.3rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  border: 0.01rem solid lightgray;
+  text-indent: 1rem;
+}
+
+.email:focus,
+.password:focus {
+  outline: none;
+}
