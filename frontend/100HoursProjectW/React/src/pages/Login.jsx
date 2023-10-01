@@ -1,5 +1,5 @@
-import styles from "./Login.module.css";
-
+import styles from "../components/Large.module.css";
+import InputFormLogin from "../components/InputFormLogin";
 function Login() {
   return (
     <>
@@ -16,15 +16,15 @@ function Login() {
             <form action="/postLogin" method="POST">
               <label htmlFor="username"></label>
 
-              <input
-                className={styles.email}
+              <InputFormLogin
+                className="signup"
                 type="text"
                 name="email"
                 id="email"
                 placeholder="Email address"
               />
-              <input
-                className={styles.password}
+              <InputFormLogin
+                className="signup"
                 type="password"
                 name="password"
                 id="password"
