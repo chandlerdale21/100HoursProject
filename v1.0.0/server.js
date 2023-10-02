@@ -8,6 +8,15 @@ const session = require("express-session");
 const flash = require("express-flash");
 const MongoStore = require("connect-mongo")(session);
 const mainRoutes = require("./routes/main");
+const cors = require("cors");
+const bcrypt = require("bcryptjs");
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 //dbconnections
 mongoose.set("useNewUrlParser", true);
@@ -36,6 +45,7 @@ app.use(
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+require("./config/passport")(passport);
 
 app.use(flash());
 //routes
