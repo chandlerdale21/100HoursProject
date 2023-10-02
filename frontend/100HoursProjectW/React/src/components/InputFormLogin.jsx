@@ -1,6 +1,13 @@
 import styles from "./InputFormLogin.module.css";
 
-function InputFormLogin({ ClassName = "email", type, name, id, placeholder }) {
+function InputFormLogin({
+  ClassName = "email",
+  type,
+  name,
+  id,
+  placeholder,
+  onChange,
+}) {
   return (
     <>
       <input
@@ -9,6 +16,7 @@ function InputFormLogin({ ClassName = "email", type, name, id, placeholder }) {
         name={name}
         id={id}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </>
   );

@@ -8,11 +8,11 @@ const upload = require("../middleware/multer");
 router.get("/", homeController.getLogin);
 router.post("/postLogin", homeController.postLogin);
 
-router.get("/feed", ensureAuth, homeController.getFeed);
+router.get("/feeds", homeController.getFeed);
 router.get("/signup", homeController.getSignup);
 router.post("/signup", homeController.createSignup);
 
-router.get("/profile", ensureAuth, homeController.getPost);
+router.get("/profile", homeController.getPost);
 ///post routes
 
 router.post("/createPost", upload.single("file"), homeController.createPost);

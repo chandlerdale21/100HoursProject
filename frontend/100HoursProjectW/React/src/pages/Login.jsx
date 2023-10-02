@@ -1,6 +1,30 @@
+import { useState } from "react";
+import axios from "axios";
 import styles from "../components/Large.module.css";
+
 import InputFormLogin from "../components/InputFormLogin";
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await axios({
+      method: "post",
+      data: {
+        email,
+        password,
+      },
+      withCredentials: true,
+      url: "http://localhost:5000/postLogin",
+    });
+    const data = res.data;
+    console.log(res);
+    if (data === "this backend has succesfully authenticated") {
+      localStorage.setItem("success", "good job");
+      window.location.href = "http://localhost:5173/feed";
+    }
+  };
+
   return (
     <>
       <div className={styles.loginGrid}>
@@ -13,7 +37,7 @@ function Login() {
         </div>
         <div className={styles.loginFormGridContainer}>
           <section className={styles.loginForm}>
-            <form action="/postLogin" method="POST">
+            <form onSubmit={handleSubmit} action="/" method="POST">
               <label htmlFor="username"></label>
 
               <InputFormLogin
@@ -22,6 +46,10 @@ function Login() {
                 name="email"
                 id="email"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <InputFormLogin
                 className="signup"
@@ -29,6 +57,8 @@ function Login() {
                 name="password"
                 id="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit" className={styles.login}>
                 Login
