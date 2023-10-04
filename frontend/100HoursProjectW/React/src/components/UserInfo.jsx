@@ -1,12 +1,10 @@
-function UserInfo() {
+import styles from "./InputFormLogin.module.css";
+
+function UserInfo({ children, child }) {
   return (
     <>
-      <h2 style={{ display: "flex", justifyContent: "center" }}>
-        Username: DATA FROM FETCH
-      </h2>
-      <h2 style={{ display: "flex", justifyContent: "center" }}>
-        Email: DATA FROM FETCH
-      </h2>
+      <h2 className={styles.user}>{children}</h2>
+      <h2 className={styles.greeting}>{child}</h2>
     </>
   );
 }

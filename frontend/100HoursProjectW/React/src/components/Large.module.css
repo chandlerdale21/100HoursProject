@@ -12,6 +12,7 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 .loginGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -67,6 +68,7 @@ html {
   font-size: 2.25rem;
   border: none;
 }
+
 .login:hover,
 .btnsignup:hover {
   cursor: pointer;

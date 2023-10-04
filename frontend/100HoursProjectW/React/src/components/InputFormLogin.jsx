@@ -7,11 +7,12 @@ function InputFormLogin({
   id,
   placeholder,
   onChange,
+  customInput,
 }) {
   return (
     <>
       <input
-        className={styles[ClassName]}
+        className={`${styles[ClassName]} ${customInput} `}
         type={type}
         name={name}
         id={id}

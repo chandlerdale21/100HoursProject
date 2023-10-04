@@ -17,3 +17,72 @@
 .password:focus {
   outline: none;
 }
+
+.title {
+  width: 40rem;
+  height: 4rem;
+  border-radius: 2rem;
+}
+.caption {
+  width: 39rem;
+  margin: 0;
+  border: none;
+}
+.postContainer {
+  margin-left: 1.5rem;
+  width: 39rem;
+  height: 20rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  background-color: white;
+}
+.login,
+.btnsignup {
+  height: 3rem;
+  width: 5rem;
+  color: rgb(255, 253, 253);
+  border-radius: 2rem;
+  margin-top: 1rem;
+  margin-left: 1.3rem;
+  background-color: rgb(70, 69, 69);
+  font-size: 1.3rem;
+  border: none;
+  display: inline;
+}
+.loginContainer {
+  display: flex;
+  justify-content: right;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  border-top: 0.011rem solid rgb(210, 210, 210);
+  width: 37rem;
+}
+.login:hover {
+  cursor: pointer;
+  background-color: rgb(115, 115, 103);
+}
+.imgUpload {
+  display: inline-block;
+  margin-top: 8rem;
+  margin-left: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5rem;
+  border: none;
+}
+.imgUpload:hover {
+  cursor: pointer;
+  background-color: #165ca8;
+}
+.user,
+.greeting {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 100;
+}
+.greeting {
+  margin-top: 2rem;
+}
