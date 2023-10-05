@@ -28,6 +28,7 @@ function SubmitPost() {
           },
         }
       );
+      window.location.reload();
 
       console.log(response);
     } catch (error) {
@@ -59,12 +60,23 @@ function SubmitPost() {
           />
           <div className={styles.postContainer}>
             {" "}
-            <InputFormLogin
+            <textarea
+              // className={styles.email}
               name="title"
               id="email"
               placeholder="Post Caption"
-              customInput={styles.caption}
               onChange={(e) => setCaption(e.target.value)}
+              style={{
+                width: "37rem",
+                maxWidth: "37rem",
+                overflowWrap: "break-word",
+                marginTop: "1.6rem",
+                marginLeft: "1rem",
+                resize: "none",
+                border: "none",
+                outline: "none",
+              }}
+              rows="7"
             />
             <div>
               <input

@@ -29,7 +29,7 @@ function Posts() {
     <>
       <div className={styles.containingDiv}>
         {postData.length === 0 ? (
-          <p>Loading...</p>
+          <p></p>
         ) : (
           postData.map((post, index) => <SinglePost key={index} post={post} />)
         )}
