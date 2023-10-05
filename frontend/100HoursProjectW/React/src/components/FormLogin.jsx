@@ -8,9 +8,9 @@ function FormLogin() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios({
+    const response = await axios({
       method: "post",
       data: {
         email,
@@ -20,20 +20,12 @@ function FormLogin() {
       },
       withCredentials: true,
       url: "http://localhost:5000/signup",
-    }).then((res) => console.log(res));
-    //   try {
-    //     const res = await fetch("http://localhost:5000/signup", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({ email, username, password, confirmPassword }),
-    //     });
-    //     console.log("Response status:", res.status);
-    //     window.location.href = "http://localhost:5000/feeds";
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
+    });
+    const data = response.data;
+    if (data.name != "MongoError") {
+      window.location.href = "/feed";
+    }
+    console.log(data.name);
   };
   return (
     <div
