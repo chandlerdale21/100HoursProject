@@ -1,6 +1,12 @@
 import Posts from "../components/Posts";
+import NavBar from "../components/NavBar";
 
 function feed() {
-  return <Posts />;
+  return (
+    <>
+      <NavBar />
+      <Posts />
+    </>
+  );
 }
 export default feed;

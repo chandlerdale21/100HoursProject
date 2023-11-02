@@ -8,6 +8,7 @@ function InputFormLogin({
   placeholder,
   onChange,
   customInput,
+  style,
 }) {
   return (
     <>
@@ -18,6 +19,7 @@ function InputFormLogin({
         id={id}
         placeholder={placeholder}
         onChange={onChange}
+        style={style}
       />
     </>
   );

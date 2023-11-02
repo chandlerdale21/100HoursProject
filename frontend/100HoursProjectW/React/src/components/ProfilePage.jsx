@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import SinglePost from "./SinglePost";
 import poststyles from "./Posts.module.css";
 import axios from "axios";
+import NavBar from "./NavBar";
 function ProfilePage() {
   const [userData, setUserData] = useState([]);
   const [postData, setPostData] = useState([]);
@@ -32,9 +33,10 @@ function ProfilePage() {
   }, []);
   return (
     <>
+      <NavBar />
       <div style={{ marginTop: "4rem" }}>
         {postData.length === 0 ? (
-          <p>Loading...</p>
+          <p></p>
         ) : (
           postData.map((post, index) => (
             <UserInfo
@@ -47,14 +49,19 @@ function ProfilePage() {
       </div>
       <SubmitPost />
       <p
-        style={{ display: "flex", justifyContent: "center", marginTop: "5rem" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "4rem",
+          fontSize: "1.5rem",
+        }}
       >
         Your personal posts are below
       </p>
       <div>
         <div className={poststyles.personalContainingDiv}>
           {userData.length === 0 ? (
-            <p>Loading...</p>
+            <p>Create your first post above!</p>
           ) : (
             userData.map((post, index) => (
               <SinglePost
@@ -66,8 +73,17 @@ function ProfilePage() {
                 backdropStyle={{ height: "16rem", width: "22rem" }}
                 key={index}
                 post={post}
-                captionStyle={{ fontSize: "1rem" }}
-                titleStyle={{ fontSize: "2rem" }}
+                captionStyle={{
+                  fontSize: "1rem",
+                  maxWidth: "22rem",
+                  overflowWrap: "break-word",
+                }}
+                titleStyle={{
+                  fontSize: "1.5rem",
+                  maxWidth: "22rem",
+                  overflow: "hidden",
+                  paddingBottom: "2.5rem",
+                }}
               />
             ))
           )}

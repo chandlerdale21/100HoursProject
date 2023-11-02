@@ -27,7 +27,12 @@ function PersonalPosts() {
   return (
     <>
       <p
-        style={{ display: "flex", justifyContent: "center", marginTop: "5rem" }}
+        style={{
+          display: "fle",
+          justifyContent: "center",
+          marginTop: "5rem",
+          fontSize: "2rem",
+        }}
       >
         Your personal posts are below
       </p>

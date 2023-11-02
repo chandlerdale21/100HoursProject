@@ -7,8 +7,17 @@ const cloudinary = require("../middleware/cloudinary");
 module.exports = {
   getPost: async (req, res) => {
     try {
+      console.log("req.user:", req.user);
+
+      if (!req.user || !req.user.id) {
+        return res.status(400).json({ message: "User not authenticated" });
+      }
       const userProfile = await User.find({ _id: req.user.id });
       const userPosts = await Post.find();
+
+      if (!userProfile || userProfile.length === 0) {
+        return res.status(404).json({ message: "User not found" });
+      }
 
       const { username, email, _id } = userProfile[0];
       console.log(_id);
@@ -29,16 +38,18 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const data = await Post.find();
+      data.reverse();
       res.json(data);
     } catch (err) {
       console.error(err);
     }
   },
   createPost: async (req, res) => {
+    console.log("req.user:", req.user);
     try {
       console.log(req.body);
-      console.log(req.file.path);
-      const result = await cloudinary.uploader.upload(req.file.path);
+      console.log(req?.file?.path);
+      const result = await cloudinary.uploader.upload(req?.file?.path);
       await Post.create({
         title: req.body.title,
         caption: req.body.caption,
