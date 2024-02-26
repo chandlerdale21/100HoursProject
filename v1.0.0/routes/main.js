@@ -9,8 +9,8 @@ router.get("/", homeController.getLogin);
 router.post("/postLogin", homeController.postLogin);
 
 router.get("/feeds", homeController.getFeed);
-router.get("/signup", homeController.getSignup);
 router.post("/signup", homeController.createSignup);
+router.get("/signup", homeController.getSignup);
 
 router.get("/profile", homeController.getPost);
 ///post routes

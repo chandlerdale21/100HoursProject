@@ -20,6 +20,7 @@ function InputFormLogin({
         placeholder={placeholder}
         onChange={onChange}
         style={style}
+        data-cy={`${placeholder}`}
       />
     </>
   );

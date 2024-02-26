@@ -52,6 +52,7 @@ function SubmitPost() {
           }}
         >
           <InputFormLogin
+            
             className=".title"
             id="email"
             placeholder="Post Title"
@@ -62,6 +63,7 @@ function SubmitPost() {
             {" "}
             <textarea
               // className={styles.email}
+              data-cy="Post Caption"
               name="title"
               id="email"
               placeholder="Post Caption"

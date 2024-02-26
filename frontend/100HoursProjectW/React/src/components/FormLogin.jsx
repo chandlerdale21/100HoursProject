@@ -8,24 +8,38 @@ function FormLogin() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errors, setErrors] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios({
-      method: "post",
-      data: {
-        email,
-        password,
-        username,
-        confirmPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:5000/signup",
-    });
-    const data = response.data;
-    if (data.name != "MongoError") {
-      window.location.href = "/feed";
+    console.log(1);
+    try {
+      const response = await axios({
+        method: "post",
+        data: {
+          email,
+          password,
+          username,
+          confirmPassword,
+        },
+        withCredentials: true,
+        url: "http://localhost:5000/signup",
+      });
+      const data = response.data;
+
+      console.log(1);
+      console.log("Errors:", data.errors);
+
+      if (data.errors) {
+        setErrors(data.errors);
+        console.log("Errors:", data.errors);
+      } else if (data.name !== "MongoError") {
+        window.location.href = "/feed";
+      }
+
+      console.log(data.name);
+    } catch (error) {
+      console.error("Error:", error);
     }
-    console.log(data.name);
   };
   return (
     <div
@@ -63,12 +77,27 @@ function FormLogin() {
           <InputFormLogin
             className="signup"
             type="password"
-            name="password"
-            id="password"
+            name="confirmPassword"
+            id="confirmPassword"
             placeholder="Confirm Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit" className={styles.login}>
+
+          {errors.length > 0 && (
+            <div className={styles.errorContainer}>
+              {errors.map((error, index) => (
+                <p
+                  data-cy="InvalidSignup"
+                  key={index}
+                  className={styles.errorMsg}
+                >
+                  {error.msg}
+                </p>
+              ))}
+            </div>
+          )}
+
+          <button data-cy="Signup" type="submit" className={styles.login}>
             Signup
           </button>
         </form>

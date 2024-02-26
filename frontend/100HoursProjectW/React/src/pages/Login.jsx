@@ -6,6 +6,7 @@ import InputFormLogin from "../components/InputFormLogin";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios({
@@ -22,6 +23,12 @@ function Login() {
     if (data === "this backend has succesfully authenticated") {
       localStorage.setItem("success", "good job");
       window.location.href = "http://localhost:5173/feed";
+    }
+    if (data.errors) {
+      setErrors(data.errors);
+      console.log("Errors:", data.errors);
+    } else if (data.name !== "MongoError") {
+      window.location.href = "/feed";
     }
   };
 
@@ -60,10 +67,19 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="submit" className={styles.login}>
+              <button data-cy="LoginTest"type="submit" className={styles.login}>
                 Login
               </button>
             </form>
+            {errors.length > 0 && (
+              <div className={styles.errorContainer}>
+                {errors.map((error, index) => (
+                  <p data-cy="InvalidEmail" key={index} className={styles.errorMsg}>
+                    {error.msg}
+                  </p>
+                ))}
+              </div>
+            )}
             <section className={styles.signup}>
               <a href="/signup">
                 <button className={styles.btnsignup}>Signup</button>

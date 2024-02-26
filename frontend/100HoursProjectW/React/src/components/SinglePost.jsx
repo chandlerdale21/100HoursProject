@@ -12,7 +12,11 @@ function SinglePosts({
 }) {
   return (
     <>
-      <div className={styles.singleContainingDiv} style={style}>
+      <div
+        data-cy="SinglePost"
+        className={styles.singleContainingDiv}
+        style={style}
+      >
         <h1 className={styles.title} style={titleStyle}>
           {post.title}
         </h1>

@@ -47,7 +47,7 @@ function ProfilePage() {
           ))
         )}
       </div>
-      <SubmitPost />
+      <SubmitPost/>
       <p
         style={{
           display: "flex",
@@ -81,8 +81,6 @@ function ProfilePage() {
                 titleStyle={{
                   fontSize: "1.5rem",
                   maxWidth: "22rem",
-                  overflowWrap: "break-word",
-                  overflow: "hidden",
                 }}
               />
             ))
