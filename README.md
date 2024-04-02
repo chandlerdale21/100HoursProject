@@ -23,3 +23,18 @@ This project is built with the MERN stack, which includes:
 - **Express.js:** A web application framework for Node.js, designed for building web applications and APIs.
 - **React:** A JavaScript library for building user interfaces.
 - **Node.js:** A JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+
+## Version Differences
+
+### v1.0.0
+
+- Initial MVP with basic functionality.
+- Frontend rendered using EJS templates.
+- Simple and straightforward user interface.
+
+### Latest Version
+
+- Upgraded frontend from EJS to React, enhancing the user experience with a dynamic and responsive design.
+- Improved overall architecture for better performance and scalability.
+- Additional features and improvements to the user interface and functionality.
