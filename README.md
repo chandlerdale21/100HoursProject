@@ -15,3 +15,11 @@ Veterans Connect is a social networking platform designed specifically for veter
 - **Network:** Build professional connections and support each other’s career growth.
 
 
+## Tech Stack
+
+This project is built with the MERN stack, which includes:
+
+- **MongoDB:** A document-based open source database.
+- **Express.js:** A web application framework for Node.js, designed for building web applications and APIs.
+- **React:** A JavaScript library for building user interfaces.
+- **Node.js:** A JavaScript runtime built on Chrome's V8 JavaScript engine.
