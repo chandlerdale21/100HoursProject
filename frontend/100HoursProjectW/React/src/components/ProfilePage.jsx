@@ -81,8 +81,7 @@ function ProfilePage() {
                 titleStyle={{
                   fontSize: "1.5rem",
                   maxWidth: "22rem",
-                  overflow: "hidden",
-                  paddingBottom: "2.5rem",
+
                 }}
               />
             ))
